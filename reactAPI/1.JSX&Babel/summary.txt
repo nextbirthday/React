@@ -1,0 +1,8 @@
+Babel은 Javascript Compiler이다.
+컴파일러: 언어해석기, 특정 언어를
+
+const element = <h1>Hello, React!</h1>
+
+"use strict";
+
+const element = /*#__PURE__*/React.createElement("h1", null, "Hello, React!");

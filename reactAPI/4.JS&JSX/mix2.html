@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const rootElement = document.querySelector('#root');
+
+      // 텍스트가 대문자로 시작이되면 h1을 적용하고 소문자로 시작하면 h3을 적용하도록 코드를 작성한다.
+      const Number = ({ number, selected }) => {
+        // return number % 2 === 1 ? <h1>{number}</h1> : <h3>{number}</h3>;
+        return selected ? <h1>{number}</h1> : <h3>{number}</h3>;
+        // if (number % 2 === 1 && selected == true) {
+        //   return <h1>{number}</h1>;
+        // } else {
+        //   return <h3>{number}</h3>;
+        // }
+      };
+
+      const element = (
+        <>
+          <Number number={1} />
+          <Number number={2} />
+          <Number number={3} selected={true} />
+          <Number number={4} />
+          <Number number={5} />
+        </>
+      );
+      ReactDOM.createRoot(rootElement).render(element);
+    </script>
+  </body>
+</html>

@@ -6,3 +6,4 @@
 
 4. yarn init --force 엔터 한 후 질문지에 대해 모두 엔터 치면 자동 완성됨
 
+5. yarn start 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리액트 클론</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <hr />
+    <div id="root2"></div>
+
+    <script type="text/babel">
+      const $root = document.querySelector('#root');
+      const $root2 = document.querySelector('#root2');
+
+      const Number = ({ number }) => {
+        return number % 2 === 1 ? <span>{number}</span> : <h2>{number}</h2>;
+      };
+
+
+      
+      const $element = (
+        <>
+          <h1>$element</h1>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => (
+            <Number key={number} number={number} selected={number === 3} />
+          ))}
+        </>
+      );
+
+      const $element2 = (
+        <>
+          <h1>$element2</h1>
+        </>
+      );
+      ReactDOM.createRoot($root).render($element);
+      ReactDOM.createRoot($root2).render($element2);
+    </script>
+  </body>
+</html>

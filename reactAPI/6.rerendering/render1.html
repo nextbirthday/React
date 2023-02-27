@@ -4,23 +4,21 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>render</title>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      .item {
-        list-style: none;
-        color: violet;
-        font-size: 36px;
-      }
-      .items {
-        padding-left: 0;
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
-    <script type="text/babel"></script>
+    <script type="text/babel">
+      const rootElement = document.querySelector('#root');
+      const random = () => {
+        const number = Math.floor(Math.random() * (10 - 1) + 1);
+        const element = <button>{number}</button>;
+        ReactDOM.render(element, rootElement);
+      };
+      setInterval(random, 1000);
+    </script>
   </body>
 </html>

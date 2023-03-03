@@ -8,26 +8,22 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      li {
-        list-style: none;
-        padding-left: 0;
-      }
-    </style>
   </head>
   <body>
     <div id="root"></div>
     <script type="text/babel">
       const rootElement = document.querySelector('#root');
 
-      const Products = (props) => {
-        const tents = props.tents;
-
+      const Products = () => {
+        const [tents, setTents] = React.useState([]);
+        fetch('tents.json')
+          .then((res) => res.json())
+          .then((data) => console.log(data));
         return (
           <>
             <ul>
               {tents.map((tent, index) => (
-                <li key={index}>
+                <li>
                   <article>
                     <h3>{tent.name}</h3>
                     <p>{tent.price}</p>
@@ -38,18 +34,11 @@
           </>
         );
       };
-
       const App = () => {
-        const [tents, setTents] = React.useState([]);
-        React.useEffect(() => {
-          fetch('../8.customComponent/tents.json')
-            .then((res) => res.json())
-            .then((data) => setTents(data));
-        }, []);
         return (
           <>
-            <h3>컴포넌트 생성하기</h3>
-            {setTents && <Products tents={tents} />}
+            <h3>컴포넌트</h3>
+            <Products />
             <button>토글</button>
           </>
         );
